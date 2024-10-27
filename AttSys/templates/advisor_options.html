@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Advisor Options</title>
+</head>
+<body>
+    <h1>Welcome, Advisor</h1>
+    <ul>
+        {% for class in classes %}
+            <li><a href="{{ url_for('view_all_attendance', class_id=class[0]) }}">View Attendance for {{ class[1] }}</a></li>
+            <li><a href="{{ url_for('review_excuses', class_id=class[0]) }}">review_excuses for {{ class[1] }}</a></li>
+        {% endfor %}
+    </ul>    
+    <a href="{{ url_for('logout1') }}">Logout</a>
+</body>
+</html>

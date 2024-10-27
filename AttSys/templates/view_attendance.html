@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Attendance Records for Class</title>
+</head>
+<body>
+    <h1>Attendance Records for Class</h1>
+    <table border="1">
+        <tr>
+            <th>Student Name</th>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Excuse Status</th>
+        </tr>
+        {% for record in records %}
+        <tr>
+            <td>{{ record[0] }}</td>
+            <td>{{ record[1] }}</td>
+            <td>{{ record[2] }}</td>
+            <td>{{ record[3] if record[3] else 'N/A' }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('instructor_page') }}">Back to Instructor Dashboard</a>
+</body>
+</html>
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>View Attendance</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Attendance Records for Class {{ class_id }}</h2>
+    <table>
+        <tr>
+            <th>Student Name</th>
+            <th>Date</th>
+            <th>Status</th>
+        </tr>
+        {% for record in attendance_records %}
+        <tr>
+            <td>{{ record[0] }}</td>
+            <td>{{ record[1] }}</td>
+            <td>{{ record[2] }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('instructor_page') }}">Back to Instructor Dashboard</a>
+</body>
+</html> -->

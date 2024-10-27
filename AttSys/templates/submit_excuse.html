@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Submit Excuse</title>
+</head>
+<body>
+    <h1>Submit Excuse for Absent Days</h1>
+    <form method="POST">
+        <label for="date">Select Date:</label>
+        <select name="date" required>
+            {% for date in absent_dates %}
+            <option value="{{ date[0] }}">{{ date[0] }}</option>
+            {% endfor %}
+        </select>
+        <br>
+        <label for="excuse">Enter Excuse:</label>
+        <textarea name="excuse" rows="4" cols="50" required></textarea>
+        <br>
+        <button type="submit">Submit Excuse</button>
+    </form>
+    <a href="{{ url_for('student_options') }}">Back to Options</a>
+</body>
+</html>

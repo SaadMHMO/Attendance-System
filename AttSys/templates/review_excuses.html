@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Review Student Excuses</title>
+</head>
+<body>
+    <h1>Review Student Excuses</h1>
+    <table border="1">
+        <tr>
+            <th>Student ID</th>
+            <th>Date</th>
+            <th>Excuse</th>
+            <th>Action</th>
+        </tr>
+        {% for record in excuses %}
+        <tr>
+            <td>{{ record[0] }}</td>
+            <td>{{ record[1] }}</td>
+            <td>{{ record[2] }}</td>
+            <td>
+                <form action="{{ url_for('review_excuses') }}" method="POST" style="display:inline;">
+                    <input type="hidden" name="student_id" value="{{ record[0] }}">
+                    <input type="hidden" name="date" value="{{ record[1] }}">
+                    <button type="submit" name="action" value="approve">Approve</button>
+                    <button type="submit" name="action" value="reject">Reject</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('advisor_options') }}">Back to Advisor Options</a>
+</body>
+</html>
+
+

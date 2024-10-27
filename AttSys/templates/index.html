@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Select Your Role</title>
+</head>
+<body>
+    <h1>Select Your Role</h1>
+    <div class="role-selection">
+        <a href="{{ url_for('student_login') }}" class="role-button">Student</a>
+        <a href="{{ url_for('instructor_login') }}" class="role-button">Instructor</a>
+        <a href="{{ url_for('advisor_login') }}" class="role-button">Advisor</a>
+        
+    </div>
+</body>
+</html>
+

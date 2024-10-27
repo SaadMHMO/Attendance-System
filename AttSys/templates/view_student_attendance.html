@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>View Attendance</title>
+</head>
+<body>
+    <h1>Your Attendance Records</h1>
+    <table>
+        <tr>
+            <th>Date</th>
+            <th>Status</th>
+            <th>Excuse</th>
+            <th>Excuse Status</th>
+        </tr>
+        {% for record in attendance_records %}
+        <tr>
+            <td>{{ record[0] }}</td>
+            <td>{{ record[1] }}</td>
+            <td>{{ record[2] or 'No Excuse Submitted' }}</td>
+            <td>{{ record[3] if record[2] else 'N/A' }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('student_options') }}">Back to Options</a>
+</body>
+</html>
+

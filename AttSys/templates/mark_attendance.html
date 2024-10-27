@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mark Attendance</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h2>Mark Attendance</h2>
+
+    <form method="POST">
+        <label>Date:</label>
+        <input type="date" name="date" required>
+    
+        <table>
+            <tr>
+                <th>Student Name</th>
+                <th>Status</th>
+            </tr>
+            
+            {% for student in students %}
+            <tr>
+                <td>{{ student.name }}</td>
+                <td>
+                    <input type="hidden" name="student_id" value="{{ student.id }}">
+                    <select name="status">
+                        <option value="Present">Present</option>
+                        <option value="Absent">Absent</option>
+                    </select>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    
+        <button type="submit">Submit Attendance</button>
+    </form>
+    
+    <p><a href="{{ url_for('instructor_page') }}">Back to Instructor Dashboard</a></p>
+    
+</body>
+</html>

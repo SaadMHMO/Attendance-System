@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <title>Advisor Login</title>
+</head>
+<body>
+    <h1>Advisor Login</h1>
+    <form method="POST">
+        <label for="advisor_id">Enter Advisor ID:</label>
+        <input type="text" name="advisor_id" required>
+        <button type="submit">Login</button>
+    </form>
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+    <a href="{{ url_for('index') }}">Back to Role Selection</a>
+</body>
+</html>

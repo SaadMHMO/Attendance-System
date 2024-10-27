@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style.css">
+    <title>Student Options</title>
+</head>
+<body>
+    <h1>Welcome, Student</h1>
+    <ul>
+        <li><a href="{{ url_for('view_student_attendance') }}">View Attendance</a></li>
+        <li><a href="{{ url_for('submit_excuse') }}">Submit Excuse</a></li>
+    </ul>
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>
